@@ -1,0 +1,43 @@
+doctype html
+html
+    head
+        title Your basic web app structure
+        script.
+            function remove(id) {
+                var oReq = new XMLHttpRequest();
+                oReq.onload = function (res) {
+                    location.reload();
+                }
+                oReq.open("delete", "/news/" + id, true);
+                oReq.send();
+            }
+        style(type="text/css").
+            td {
+                padding: 5px 10px
+            }
+
+    body
+        a(href='/news/create') Створити новину
+        br
+        br
+        table(border=1)
+
+            thead
+                tr
+                    th Comment id
+                    th Title
+                    th Description
+                    th Action
+            tbody
+                each item in news
+                    tr
+                        td
+                            a(href='/news/' + item._id)
+                                = item._id
+                        td
+                            = item.title
+                        td
+                            = item.description
+                        td
+                            button(onclick="remove('" + item._id + "')") Видалити
+

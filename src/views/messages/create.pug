@@ -1,0 +1,25 @@
+doctype html
+html
+    head
+        title Your basic web app structure
+    body
+        form(action="/news" method="POST")
+            label(for="title") Title
+            br
+            input#title(type="text" name="title" required)
+            br
+            br
+
+            label(for="description") Description
+            br
+            input#description(type="text" name="description" required)
+            br
+            br
+
+            label(for="photoUrl") PhotoUrl
+            br
+            input#photoUrl(type="text" name="photoUrl" required)
+            br
+            br
+            input(type="submit" value="Створити новину")
+
